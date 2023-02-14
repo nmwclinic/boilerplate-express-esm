@@ -22,7 +22,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({ status: false, message: "Not found" });
 });
 
