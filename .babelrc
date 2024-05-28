@@ -1,12 +1,8 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "minify"
-  ],
+  "presets": ["@babel/preset-env"],
   "plugins": [
-    [
-      "module-resolver",
-      {
+    [ 
+      "module-resolver", {
         "alias": {
           "@root": "./src/",
           "@routes": "./src/routes"
