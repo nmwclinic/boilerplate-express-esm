@@ -1,10 +1,10 @@
 import express from 'express';
-import path from 'path';
+import path from 'node:path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-
 import indexRouter from '@routes/index';
 import usersRouter from '@routes/users';
+import { processCSS } from './middlewares/postcss'
 
 const app = express();
 
@@ -16,6 +16,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.get('/css/:file', async (req, res) => {
+  try {
+    const fileName = req.params.file;
+    const filePath = path.join(__dirname, '../public/css', fileName);
+    const css = await processCSS(filePath);
+    res.set('Content-Type', 'text/css');
+    res.send(css);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', indexRouter);

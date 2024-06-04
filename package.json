@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "nodemon --exec babel-node -- ./src/bin/www.js",
     "clean": "rm -rf dist",
-    "build": "npm run clean && babel ./src --out-dir dist --copy-files",
-    "start": "node ./dist/bin/www.js"
+    "build": "npm run clean && babel ./src --out-dir dist --copy-files && npm run style",
+    "start": "node ./dist/bin/www.js",
+    "style": "postcss ./public/css/styles.css --output ./public/css/main.css --map"
   },
   "jest": {
     "transform": {
@@ -27,8 +28,13 @@
     "@babel/eslint-parser": "^7.24.6",
     "@babel/node": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
+    "autoprefixer": "^10.4.19",
     "babel-plugin-module-resolver": "^5.0.2",
+    "cssnano": "^7.0.1",
     "eslint": "^9.3.0",
-    "nodemon": "^3.1.1"
+    "nodemon": "^3.1.1",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.3"
   }
 }
