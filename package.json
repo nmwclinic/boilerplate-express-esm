@@ -1,6 +1,7 @@
 {
   "name": "node-babel",
   "version": "0.0.0",
+  "type": "module",
   "private": false,
   "scripts": {
     "dev": "nodemon --exec babel-node -- ./src/bin/www.js",
@@ -15,6 +16,7 @@
     }
   },
   "dependencies": {
+    "@vinejs/vine": "^2.1.0",
     "cookie-parser": "^1.4.6",
     "core-js": "^3.37.1",
     "ejs": "^3.1.10",
