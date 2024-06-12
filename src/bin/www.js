@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import { PORT } from '@root/env.json';
+// import 'core-js/stable';
+// import 'regenerator-runtime/runtime';
+// import { PORT } from '@root/env.json';
 
 /**
  * Module dependencies.
  */
 
 import http from 'http';
-import app from '../app';
+import app from '../app.js';
 
 /**
  * Normalize a port into a number, string, or false.
@@ -33,7 +33,7 @@ const normalizePort = (val) => {
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(PORT);
+const port = normalizePort(3000);
 app.set('port', port);
 
 /**
